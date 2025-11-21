@@ -1,6 +1,6 @@
 # VDPC (Python)
 
-Python reimplementation of the original VDPC MATLAB scripts. The goal is a drop-in, NumPy-first version of the `main.m` workflow so it can be used directly inside this repository without MATLAB. The upstream MATLAB reference lives in [EmotiEffLib](https://github.com/sb-ai-lab/EmotiEffLib.git); this module is adapted from that version for integration here.
+Python reimplementation of the original VDPC MATLAB scripts. The goal is a drop-in, NumPy-first version of the `main.m` workflow so it can be used directly inside this repository without MATLAB. The upstream MATLAB reference lives in [mlyizhang](https://github.com/mlyizhang/VDPC.git); this module is adapted from that version for integration here.
 
 ## Files
 
