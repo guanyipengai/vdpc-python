@@ -1,6 +1,6 @@
 # VDPC (Python)
 
-Python reimplementation of the MATLAB scripts in `experiments/VDPC`. The goal is a drop-in, NumPy-first version of the original `main.m` workflow so it can be used directly inside this repository without MATLAB.
+Python reimplementation of the original VDPC MATLAB scripts. The goal is a drop-in, NumPy-first version of the `main.m` workflow so it can be used directly inside this repository without MATLAB. The upstream MATLAB reference lives in [EmotiEffLib](https://github.com/sb-ai-lab/EmotiEffLib.git); this module is adapted from that version for integration here.
 
 ## Files
 
@@ -59,10 +59,3 @@ If you need to compare against the MATLAB scripts:
 - `rng`: optional `np.random.Generator` for deterministic DBSCAN visiting order.
 - `continue_on_start_100` (default False): force running downstream steps even if no low-density gap is found.
 - `center_rho_eps` (default 1e-12): small epsilon applied to rho when deciding centers so extremely small rho values are retained (helps match MATLAB).
-
-### 调参提示
-
-- `percent`（默认 0.4）：用于计算 cutoff 距离 `dc` 的百分位数。取值越大，`dc` 越大，等效于加粗邻域，密度曲线更平滑，中心数通常减少；取值偏小，`dc` 越小，局部差异被放大，容易出现更多密度峰（甚至碎簇）。
-- `min_delta`（默认 3.5）：决策图上 delta 的阈值，越低会选出更多峰（簇数增加，易把近邻峰拆开）；越高则更保守（簇数减少，易把弱峰并入大簇）。
-- `min_rho`（默认 0.0）：决策图上 rho 的阈值，越高会滤掉低密度峰（弱簇/离群峰被合并或丢弃）；越低则保留更多低密度峰。通常与 `min_delta` 配合调节。
-- 交互影响：`percent` 控制密度估计的“粗/细”，`min_delta`/`min_rho` 控制峰的选择。若希望找到更多细粒度簇，可减小 `percent` 或降低 `min_delta`/`min_rho`；若希望稳健少簇，可增大 `percent` 或提高 `min_delta`/`min_rho`。
